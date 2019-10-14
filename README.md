@@ -16,7 +16,7 @@ The goals / steps of this project are the following:
 * Design, train and test a model architecture
 * Use the model to make predictions on new images
 * Analyze the softmax probabilities of the new images
-* Summarize the results with a written report
+* Visualize the Neural Network's State with Test Images
 
 ### Dependencies
 This lab requires:
@@ -48,6 +48,12 @@ Number of training examples = 34799
 Number of testing examples = 12630
 Image data shape = (32, 32, 3)
 Number of classes = 43
+
+##### Data distribution analysis
+
+The data distribution for the given image sets looks as below:-
+
+<img src="data_distribution.png">
 
 ### Design and Test a Model Architecture
 
@@ -106,3 +112,26 @@ Test Set Accuracy = 1.000
 ### Analyze the softmax probabilities of the new images
 
 <img src="Softmax_images.png">
+
+### Visualize the Neural Network's State with Test Images
+
+When visualized layer 1 and layer 2 outputs look as below:-
+
+##### Layer 1
+```
+#Visualize feature maps for 1st conv layer. Depth is 6.
+with tf.Session() as sess:
+    saver.restore(sess, "./lenet")
+    outputFeatureMap(image_input, layer1)
+```
+<img src="layer_1.png">
+
+##### Layer 2
+
+```
+#Visualize feature maps for 2st conv layer. Depth is 16.
+with tf.Session() as sess:
+    saver.restore(sess, "./lenet")
+    outputFeatureMap(image_input, layer2)
+```
+<img src="layer_2.png">
